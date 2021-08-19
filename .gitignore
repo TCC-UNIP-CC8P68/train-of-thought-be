@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/yeoman,node,react,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=yeoman,node,react,visualstudiocode
+# Created by https://www.toptal.com/developers/gitignore/api/node,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,visualstudiocode
 
 ### Node ###
 # Logs
@@ -92,14 +92,6 @@ typings/
 .nuxt
 dist
 
-# Storybook build outputs
-.out
-.storybook-out
-storybook-static
-
-# rollup.js default build output
-dist/
-
 # Gatsby files
 .cache/
 # Comment in the public line in if your project uses Gatsby and not Next.js
@@ -124,29 +116,10 @@ dist/
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
-# Temporary folders
-tmp/
-temp/
-
-### react ###
-.DS_*
-**/*.backup.*
-**/*.back.*
-
-node_modules
-
-*.sublime*
-
-psd
-thumb
-sketch
-
 ### VisualStudioCode ###
 .vscode/*
-!.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
-!.vscode/extensions.json
 *.code-workspace
 
 ### VisualStudioCode Patch ###
@@ -154,9 +127,4 @@ sketch
 .history
 .ionide
 
-### Yeoman ###
-bower_components/
-
-build/
-
-# End of https://www.toptal.com/developers/gitignore/api/yeoman,node,react,visualstudiocode
+# End of https://www.toptal.com/developers/gitignore/api/node,visualstudiocode
