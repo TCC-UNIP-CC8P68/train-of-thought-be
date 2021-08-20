@@ -1,12 +1,15 @@
 const express = require('express');
+const cors = require('cors');
 const router = require('../routes');
 
 module.exports = () => {
-    const app = express();
+  const app = express();
 
-    app.set('port', 3000);
-    app.use(express.json());
-    router(app);
+  app.use(cors());
+  app.use(express.json());
+  app.set('port', 8084);
 
-    return(app);
+  router(app);
+
+  return(app);
 }
