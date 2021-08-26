@@ -11,6 +11,14 @@ const Captures = db.define('Captures',{
   capturedUrl: {
     type: Sequelize.STRING,
     allowNull: false
+  },
+  createdAt: {
+    type: Sequelize.JSON,
+    allowNull: false
+  },
+  updatedAt: {
+    type: Sequelize.JSON,
+    allowNull: false
   }
 });
 

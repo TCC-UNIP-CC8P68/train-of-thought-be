@@ -5,4 +5,3 @@
 
 
 Train of Tought Backend Application
-INSERT INTO "Captures" ("id","capturedUrl","createdAt","updatedAt") VALUES (DEFAULT,"asd") RETURNING "id","capturedUrl","createdAt","updatedAt";
