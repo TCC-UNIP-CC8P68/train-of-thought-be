@@ -10,8 +10,7 @@ const Captures = db.define('Captures',{
   },
   capturedUrl: {
     type: Sequelize.STRING,
-    allowNull: false,
-    unique: true
+    allowNull: false
   }
 });
 
