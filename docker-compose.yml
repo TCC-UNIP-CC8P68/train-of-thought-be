@@ -1,0 +1,32 @@
+version: '3'
+
+services: 
+  train_of_thought_be:
+    container_name: train_of_thought
+    image: train_of_thought:0.0.1
+    build: 
+      context: .
+    ports:
+      - "8084:8084"
+    environment: 
+      - EXTERNAL_PORT=8084
+      - PGDATABASE=train_of_thought
+      - PGUSER=admin
+      - PGPASSWORD=12345
+      - PGHOST=train_of_thought_db
+    depends_on: 
+      - train_of_thought_db
+  train_of_thought_db: 
+    container_name: train_of_thought_db
+    image: "postgres:12"
+    ports:
+      - "40000:5432"
+    environment: 
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_DB=train_of_thought
+    volumes:
+      - nps_data:/var/lib/postgresql/data
+
+volumes:
+  nps_data: {}
