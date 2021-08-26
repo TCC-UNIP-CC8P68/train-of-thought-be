@@ -12,6 +12,10 @@ async function up({ context: queryInterface}) {
       type: Sequelize.STRING,
       allowNull: false
     },
+    momentOfCapture: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
     createdAt: {
       type: Sequelize.JSON,
       allowNull: false

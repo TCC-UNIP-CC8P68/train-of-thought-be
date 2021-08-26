@@ -12,6 +12,10 @@ const Captures = db.define('Captures',{
     type: Sequelize.STRING,
     allowNull: false
   },
+  momentOfCapture: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   createdAt: {
     type: Sequelize.JSON,
     allowNull: false

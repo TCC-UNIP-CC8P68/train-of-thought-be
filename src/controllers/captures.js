@@ -4,11 +4,11 @@ module.exports = {
   async postCapture(req, res) {
     try {
       const CAPTURE_MODEL = {
-        capturedUrl: req.body.capturedUrl
+        capturedUrl: req.body.capturedUrl,
+        momentOfCapture: req.body.momentOfCapture
       };
       try {
         const capture = await Captures.create(CAPTURE_MODEL);
-        console.log('Url registrada');
         return res.status(201).json(capture);
       } catch (error) {
         return res.status(500).json(error);
