@@ -8,6 +8,14 @@ async function up({ context: queryInterface}) {
       allowNull: false,
       primaryKey: true
     },
+    userId: {
+      type: Sequelize.DataTypes.INTEGER,
+      references: {
+        model: "Users",
+        key: 'id'
+      },
+      allowNull: false
+    },
     capturedUrl: {
       type: Sequelize.STRING,
       allowNull: false

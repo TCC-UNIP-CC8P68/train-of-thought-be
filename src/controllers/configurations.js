@@ -4,6 +4,7 @@ module.exports = {
   async postConfiguration(req, res) {
     try {
       const CONFIGURATION_MODEL = {
+        userId: req.body.userId,
         timeoutValue: req.body.timeoutValue,
         setBy: req.body.setBy
       };

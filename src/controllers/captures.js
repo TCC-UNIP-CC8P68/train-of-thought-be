@@ -4,6 +4,7 @@ module.exports = {
   async postCapture(req, res) {
     try {
       const CAPTURE_MODEL = {
+        userId: req.body.userId,
         capturedUrl: req.body.capturedUrl,
         momentOfCapture: req.body.momentOfCapture
       };

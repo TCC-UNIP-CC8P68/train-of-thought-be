@@ -1,28 +1,16 @@
 const { Sequelize } = require('sequelize');
 
 async function up({ context: queryInterface}) {
-  queryInterface.createTable('Configurations', {
+  queryInterface.createTable('Users', {
     id: {
       type: Sequelize.INTEGER,
       autoIncrement: true,
       allowNull: false,
       primaryKey: true
     },
-    userId: {
-      type: Sequelize.DataTypes.INTEGER,
-      references: {
-        model: "Users",
-        key: 'id'
-      },
-      allowNull: false
-    },
-    timeoutValue: {
+    name: {
       type: Sequelize.STRING,
       allowNull: false
-    },
-    setBy: {
-      type: Sequelize.STRING,
-      allowNull: true
     },
     createdAt: {
       type: Sequelize.JSON,
@@ -36,7 +24,7 @@ async function up({ context: queryInterface}) {
 }
 
 async function down({ context: queryInterface }) {
-  await queryInterface.dropTable('Configurations');
+  await queryInterface.dropTable('Users');
 }
 
 module.exports = { up, down };

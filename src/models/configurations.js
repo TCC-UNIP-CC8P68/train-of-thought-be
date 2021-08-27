@@ -8,6 +8,14 @@ const Configurations = db.define('Configurations',{
     allowNull: false,
     primaryKey: true
   },
+  userId: {
+    type: Sequelize.DataTypes.INTEGER,
+    references: {
+      model: "Users",
+      key: 'id'
+    },
+    allowNull: false
+  },
   timeoutValue: {
     type: Sequelize.STRING,
     allowNull: false

@@ -1,26 +1,14 @@
 const Sequelize = require('sequelize');
 const db = require('../util/database');
 
-const Captures = db.define('Captures',{
+const Users = db.define('Users',{
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true
   },
-  userId: {
-    type: Sequelize.DataTypes.INTEGER,
-    references: {
-      model: "Users",
-      key: 'id'
-    },
-    allowNull: false
-  },
-  capturedUrl: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  momentOfCapture: {
+  name: {
     type: Sequelize.STRING,
     allowNull: false
   },
@@ -34,4 +22,4 @@ const Captures = db.define('Captures',{
   }
 });
 
-module.exports = Captures;
+module.exports = Users;
