@@ -20,8 +20,17 @@ module.exports = {
   },
 
   async getCapture(req, res) {
-    console.log("rota get");
-
-    res.send("get captures");
+    try {
+      let userId = req.query.userId;
+      try {
+        Captures.findAndCountAll({ where: {userId: userId} }).then(function(userConfig) {
+          return res.status(200).json(userConfig);
+        });
+      } catch (error) {
+        return res.status(500).json(error);
+      }
+    } catch (error) {
+      return res.status(500).json(error);
+    }
   }
 }
