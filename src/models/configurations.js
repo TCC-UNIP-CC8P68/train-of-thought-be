@@ -17,7 +17,7 @@ const Configurations = db.define('Configurations',{
     allowNull: false
   },
   timeoutValue: {
-    type: Sequelize.STRING,
+    type: Sequelize.INTEGER,
     allowNull: false
   },
   setBy: {

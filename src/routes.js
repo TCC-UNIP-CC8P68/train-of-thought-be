@@ -8,7 +8,9 @@ module.exports = (app) => {
   .get(controllerCapture.getCapture);
 
   app.route('/configuration')
-  .post(controllerConfiguration.postConfiguration);
+  .post(controllerConfiguration.postConfiguration)
+  .put(controllerConfiguration.putConfiguration)
+  .get(controllerConfiguration.getConfiguration);
 
   app.route('/user')
   .post(controllerUser.postUser);

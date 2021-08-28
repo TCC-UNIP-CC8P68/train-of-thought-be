@@ -17,7 +17,7 @@ async function up({ context: queryInterface}) {
       allowNull: false
     },
     timeoutValue: {
-      type: Sequelize.STRING,
+      type: Sequelize.INTEGER,
       allowNull: false
     },
     setBy: {
