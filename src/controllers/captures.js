@@ -22,8 +22,14 @@ module.exports = {
   async getCapture(req, res) {
     try {
       let userId = req.query.userId;
+      let limit = req.query.limit;
+      let offset = req.query.offset;
       try {
-        Captures.findAndCountAll({ where: {userId: userId} }).then(function(userConfig) {
+        Captures.findAll({ 
+          where: {userId: userId},
+          limit: limit,
+          offset: offset
+        }).then(function(userConfig) {
           return res.status(200).json(userConfig);
         });
       } catch (error) {
