@@ -1,5 +1,6 @@
 const controllerCapture = require('./controllers/captures');
 const controllerConfiguration = require('./controllers/configurations');
+const controllerUrlException = require('./controllers/urlExceptions');
 const controllerUser = require('./controllers/users');
 
 module.exports = (app) => {
@@ -11,6 +12,13 @@ module.exports = (app) => {
   .post(controllerConfiguration.postConfiguration)
   .put(controllerConfiguration.putConfiguration)
   .get(controllerConfiguration.getConfiguration);
+
+  app.route('/urlexception')
+  .post(controllerUrlException.postUrlException)
+  .get(controllerUrlException.getUrlException);
+
+  app.route('/verifyurlexception')
+  .get(controllerUrlException.verifyUrlException);
 
   app.route('/user')
   .post(controllerUser.postUser);
