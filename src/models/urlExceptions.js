@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
-const db = require('../util/database');
+const sequelize = require('../util/database');
 
-const UrlExceptions = db.define('UrlExceptions',{
+const UrlExceptions = sequelize.define('UrlExceptions',{
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
