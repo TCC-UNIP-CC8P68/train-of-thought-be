@@ -1,14 +1,16 @@
 const Sequelize = require('sequelize');
+const config = require('../config/config.dev.json');
 
 const sequelize = new Sequelize(
-  process.env.PGDATABASE,
-  process.env.PGUSER,
-  process.env.PGPASSWORD,
+  config.database,
+  config.user,
+  config.password,
   {
-    host: process.env.PGHOST,
+    host: config.host,
+    port: config.port,
     dialect: 'postgres'
   }
-)
+);
 
 module.exports = sequelize;
 

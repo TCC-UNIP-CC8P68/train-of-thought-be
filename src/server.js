@@ -1,18 +1,13 @@
 const app = require('./config/express')();
-const sequelize = require('./util/database.js')
-const { Umzug, SequelizeStorage } = require('umzug');
-
-const umzug = new Umzug({
-  migrations: { glob: 'migrations/*.js' },
-  context: sequelize.getQueryInterface(), 
-  storage: new SequelizeStorage({
-    sequelize
-  }),  
-  logger: console,
-});
+const sequelize = require('./util/database.js');
 
 (async () => {
-  await umzug.up();
+  try {
+    await sequelize.authenticate();
+    console.log('Connection has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
 })();
 
 app.listen(app.get('port'), () => {
