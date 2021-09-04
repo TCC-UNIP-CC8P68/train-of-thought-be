@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../util/database');
+const Users = require('./users.js')
 
 const Configurations = sequelize.define('Configurations',{
   id: {
@@ -33,5 +34,8 @@ const Configurations = sequelize.define('Configurations',{
     allowNull: false
   }
 });
+
+Users.hasMany(Configurations, {foreignKey: 'userId'})
+Configurations.belongsTo(Users, {foreignKey: 'userId'})
 
 module.exports = Configurations;

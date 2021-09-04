@@ -21,5 +21,6 @@ module.exports = (app) => {
   .get(controllerUrlException.verifyUrlException);
 
   app.route('/user')
-  .post(controllerUser.postUser);
+  .post(controllerUser.postUser)
+  .get(controllerUser.getUser);
 }

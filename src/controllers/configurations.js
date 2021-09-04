@@ -1,4 +1,6 @@
 const Configurations = require('../models/configurations.js')
+const Users = require('../models/users.js')
+
 
 module.exports = {
   async postConfiguration(req, res) {
@@ -39,12 +41,18 @@ module.exports = {
 
   async getConfiguration(req, res) {
     try {
-      let userId = req.query.userId;
+      let email = req.query.email;
       try {
-        Configurations.findOne({ where: {userId: userId} }).then(function(userConfig) {
+        Configurations.findAll({ 
+          include: [{ 
+            model: Users,                      
+            where:{email : email}
+          }]
+        }).then(function(userConfig) {
           return res.status(200).json(userConfig);
         });
       } catch (error) {
+        console.log(error);
         return res.status(500).json(error);
       }
     } catch (error) {

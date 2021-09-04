@@ -7,7 +7,7 @@ module.exports = () => {
 
   app.use(cors());
   app.use(express.json());
-  app.set('port', 8084);
+  app.set('port', 8085);
 
   router(app);
 
