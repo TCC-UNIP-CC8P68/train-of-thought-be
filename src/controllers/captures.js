@@ -1,32 +1,41 @@
 const Captures = require('../models/captures.js')
+const Users = require('../models/users.js')
+const UsersConf = require('./users.js')
 
 module.exports = {
   async postCapture(req, res) {
-    try {
-      const CAPTURE_MODEL = {
-        userId: req.body.userId,
-        capturedUrl: req.body.capturedUrl,
-        momentOfCapture: req.body.momentOfCapture
-      };
+    UsersConf.getUserId(req.body.email).then(function (userId){
       try {
-        const capture = await Captures.create(CAPTURE_MODEL);
-        return res.status(201).json(capture);
+        const CAPTURE_MODEL = {
+          userId: userId,
+          capturedUrl: req.body.capturedUrl,
+          momentOfCapture: req.body.momentOfCapture
+        };
+        try {
+          Captures.create(CAPTURE_MODEL).then(function (capture){
+            return res.status(201).json(capture);
+          })
+        } catch (error) {
+          return res.status(500).json(error);
+        }
       } catch (error) {
         return res.status(500).json(error);
       }
-    } catch (error) {
-      return res.status(500).json(error);
-    }
+    })
   },
 
   async getCapture(req, res) {
     try {
-      let userId = req.query.userId;
+      let email = req.query.email;
       let limit = req.query.limit;
       let offset = req.query.offset;
       try {
         Captures.findAll({ 
-          where: {userId: userId},
+          include: [{ 
+            model: Users,                      
+            where:{email : email},
+            attributes: []
+          }],
           limit: limit,
           offset: offset
         }).then(function(userConfig) {

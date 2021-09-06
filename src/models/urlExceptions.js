@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../util/database');
+const Users = require('./users.js');
 
 const UrlExceptions = sequelize.define('UrlExceptions',{
   id: {
@@ -29,5 +30,8 @@ const UrlExceptions = sequelize.define('UrlExceptions',{
     allowNull: false
   }
 });
+
+Users.hasMany(UrlExceptions, {foreignKey: 'userId'})
+UrlExceptions.belongsTo(Users, {foreignKey: 'userId'})
 
 module.exports = UrlExceptions;

@@ -34,7 +34,9 @@ module.exports = {
           setBy: req.body.setBy
         };  
         try {
-          Configurations.update(CONFIGURATION_MODEL, { where: { userId: userId } }).then(function (configuration){
+          Configurations.update(CONFIGURATION_MODEL, {
+            where: { userId: userId } 
+          }).then(function (configuration){
             return res.status(201).json(configuration);
           })
         } catch (error) {
