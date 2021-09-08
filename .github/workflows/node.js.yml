@@ -14,11 +14,6 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x, 16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js 14.x
@@ -26,9 +21,6 @@ jobs:
       with:
         node-version: 14.x
         cache: 'npm'
-        working-directory: ./src/
+        cache-dependency-path: ./src
     - run: npm ci
-      working-directory: ./src/
-    - run: npm run build --if-present
-      working-directory: ./src/
-    
+    - run: npm run build --if-present    
