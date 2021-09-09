@@ -1,5 +1,7 @@
 const controllerCapture = require('./controllers/captures');
 const controllerConfiguration = require('./controllers/configurations');
+const controllerConfigurationTimeout = require('./controllers/configurationsTimeout');
+const controllerConfigurationAllowCapture = require('./controllers/configurationsAllowCapture');
 const controllerUrlException = require('./controllers/urlExceptions');
 const controllerUser = require('./controllers/users');
 
@@ -12,6 +14,16 @@ module.exports = (app) => {
   .post(controllerConfiguration.postConfiguration)
   .put(controllerConfiguration.putConfiguration)
   .get(controllerConfiguration.getConfiguration);
+
+  app.route('/configuration/timeout')
+  .post(controllerConfigurationTimeout.postConfigurationTimeout)
+  .put(controllerConfigurationTimeout.putConfigurationTimeout)
+  .get(controllerConfigurationTimeout.getConfigurationTimeout);
+
+  app.route('/configuration/allowcapture')
+  .post(controllerConfigurationAllowCapture.postConfigurationAllowCapture)
+  .put(controllerConfigurationAllowCapture.putConfigurationAllowCapture)
+  .get(controllerConfigurationAllowCapture.getConfigurationAllowCapture);
 
   app.route('/urlexception')
   .post(controllerUrlException.postUrlException)

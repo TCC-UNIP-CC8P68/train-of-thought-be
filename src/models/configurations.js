@@ -21,6 +21,11 @@ const Configurations = sequelize.define('Configurations',{
     type: Sequelize.INTEGER,
     allowNull: false
   },
+  allowCapture: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false,
+    defaultValue: true
+  },
   setBy: {
     type: Sequelize.STRING,
     allowNull: true

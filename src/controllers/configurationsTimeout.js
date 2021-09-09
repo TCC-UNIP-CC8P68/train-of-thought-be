@@ -4,13 +4,12 @@ const UsersConf = require('./users.js')
 
 
 module.exports = {
-  async postConfiguration(req, res) {
+  async postConfigurationTimeout(req, res) {
     UsersConf.getUserId(req.body.email).then(function (userId){
       try {
         const CONFIGURATION_MODEL = {
           userId: userId,
           timeoutValue: req.body.timeoutValue,
-          allowCapture: req.body.allowCapture,
           setBy: req.body.setBy
         };
         try {
@@ -26,13 +25,12 @@ module.exports = {
     })
   },
 
-  async putConfiguration(req, res) {
+  async putConfigurationTimeout(req, res) {
     UsersConf.getUserId(req.body.email).then(function (userId){
       try {
         const CONFIGURATION_MODEL = {
           userId: userId,
           timeoutValue: req.body.timeoutValue,
-          allowCapture: req.body.allowCapture,
           setBy: req.body.setBy
         };  
         try {
@@ -50,7 +48,7 @@ module.exports = {
     })
   },
 
-  async getConfiguration(req, res) {
+  async getConfigurationTimeout(req, res) {
     try {
       let email = req.query.email;
       try {
@@ -59,7 +57,8 @@ module.exports = {
             model: Users,                      
             where:{email : email},
             attributes: []
-          }]
+          }],
+          attributes: ['timeoutValue']
         }).then(function(userConfig) {
           return res.status(200).json(userConfig);
         });
