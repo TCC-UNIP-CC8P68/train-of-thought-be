@@ -35,9 +35,10 @@ module.exports = {
         };  
         try {
           Configurations.update(CONFIGURATION_MODEL, {
-            where: { userId: userId } 
+            where: { userId: userId },
+            returning: true
           }).then(function (configuration){
-            return res.status(201).json(configuration);
+            return res.status(201).json(configuration[1]);
           })
         } catch (error) {
           console.log(error);
