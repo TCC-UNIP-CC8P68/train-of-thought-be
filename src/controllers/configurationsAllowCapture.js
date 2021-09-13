@@ -47,28 +47,5 @@ module.exports = {
         return res.status(500).json(error);
       }
     })
-  },
-
-  async getConfigurationAllowCapture(req, res) {
-    try {
-      let email = req.query.email;
-      try {
-        Configurations.findAll({
-          include: [{ 
-            model: Users,                      
-            where:{email : email},
-            attributes: []
-          }],
-          attributes: ['allowCapture']
-        }).then(function(userConfig) {
-          return res.status(200).json(userConfig);
-        });
-      } catch (error) {
-        console.log(error);
-        return res.status(500).json(error);
-      }
-    } catch (error) {
-      return res.status(500).json(error);
-    }
   }
 }

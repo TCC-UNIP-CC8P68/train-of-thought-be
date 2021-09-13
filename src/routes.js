@@ -17,13 +17,11 @@ module.exports = (app) => {
 
   app.route('/configuration/timeout')
   .post(controllerConfigurationTimeout.postConfigurationTimeout)
-  .put(controllerConfigurationTimeout.putConfigurationTimeout)
-  .get(controllerConfigurationTimeout.getConfigurationTimeout);
+  .put(controllerConfigurationTimeout.putConfigurationTimeout);
 
   app.route('/configuration/allowcapture')
   .post(controllerConfigurationAllowCapture.postConfigurationAllowCapture)
-  .put(controllerConfigurationAllowCapture.putConfigurationAllowCapture)
-  .get(controllerConfigurationAllowCapture.getConfigurationAllowCapture);
+  .put(controllerConfigurationAllowCapture.putConfigurationAllowCapture);
 
   app.route('/urlexception')
   .post(controllerUrlException.postUrlException)
