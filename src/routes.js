@@ -25,9 +25,6 @@ module.exports = (app) => {
   .post(controllerUrlException.postUrlException)
   .get(controllerUrlException.getUrlException);
 
-  app.route('/verifyurlexception')
-  .get(controllerUrlException.verifyUrlException);
-
   app.route('/user')
   .post(controllerUser.postUser)
   .get(controllerUser.getUser);
