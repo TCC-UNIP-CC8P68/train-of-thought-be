@@ -10,6 +10,7 @@ module.exports = {
         const CONFIGURATION_MODEL = {
           userId: userId,
           timeoutValue: req.body.timeoutValue,
+          allowCapture: req.body.allowCapture,
           setBy: req.body.setBy
         };
         try {
@@ -31,6 +32,7 @@ module.exports = {
         const CONFIGURATION_MODEL = {
           userId: userId,
           timeoutValue: req.body.timeoutValue,
+          allowCapture: req.body.allowCapture,
           setBy: req.body.setBy
         };  
         try {
