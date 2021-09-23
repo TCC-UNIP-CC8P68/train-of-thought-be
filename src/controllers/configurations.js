@@ -70,5 +70,30 @@ module.exports = {
     } catch (error) {
       return res.status(500).json(error);
     }
+  },
+  
+  async putDontDisturb(req, res) {
+    try { 
+      let userId = await UsersConf.getUserId(req.body.email);
+
+      if(userId) {
+        const CONFIGURATION_MODEL = {
+          userId: userId,
+          dontDisturb: req.body.dontDisturb,
+          setBy: req.body.setBy
+        }
+    
+        Configurations.update(CONFIGURATION_MODEL, {
+          where: {userId: userId}
+        }).then(configuration => {
+          return res.status(204).json(configuration);
+        });
+      } else {
+        return res.status(400).json({"msg": "User not found"});
+      }
+    } catch(error) {
+      return res.status(500).json(error)
+    }
   }
 }
+

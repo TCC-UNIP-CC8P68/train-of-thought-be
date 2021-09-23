@@ -13,7 +13,10 @@ module.exports = (app) => {
   app.route('/configuration')
   .post(controllerConfiguration.postConfiguration)
   .put(controllerConfiguration.putConfiguration)
-  .get(controllerConfiguration.getConfiguration);
+  .get(controllerConfiguration.getConfiguration)
+  
+  app.route('/configuration/dontdisturb')
+    .put(controllerConfiguration.putDontDisturb);
 
   app.route('/configuration/timeout')
   .put(controllerConfigurationTimeout.putConfigurationTimeout);

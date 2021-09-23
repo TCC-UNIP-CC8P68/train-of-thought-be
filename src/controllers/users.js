@@ -38,10 +38,13 @@ module.exports = {
 
   async getUserId(email) {
     try {
-      let user = await Users.findAll({  where: {email: email}, attributes: ['id']})
-      let userString = JSON.stringify(user);
-      let userId = JSON.parse(userString);
-      return userId[0].id;
+      let user = await Users.findOne({  where: {email: email}, attributes: ['id']});      
+      
+      if (user) {
+        return user.id;
+      } else {
+        return undefined; 
+      }
     } catch (error) {
       return error;
     }
