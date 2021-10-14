@@ -84,9 +84,10 @@ module.exports = {
         }
     
         Configurations.update(CONFIGURATION_MODEL, {
-          where: {userId: userId}
+          where: {userId: userId},
+          returning: true
         }).then(configuration => {
-          return res.status(204).json(configuration);
+          return res.status(201).json(configuration[1])
         });
       } else {
         return res.status(400).json({"msg": "User not found"});
