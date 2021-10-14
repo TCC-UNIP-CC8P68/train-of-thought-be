@@ -26,6 +26,11 @@ const Configurations = sequelize.define('Configurations',{
     allowNull: false,
     defaultValue: true
   },
+  dontDisturb: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false,
+    defaultValue: true
+  },
   setBy: {
     type: Sequelize.STRING,
     allowNull: true
