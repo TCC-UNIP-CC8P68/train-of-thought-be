@@ -4,7 +4,6 @@ module.exports = {
   async postUser(req, res) {
     try {
       const USER_MODEL = {
-        name: req.body.name,
         email: req.body.email
       };
       try {
