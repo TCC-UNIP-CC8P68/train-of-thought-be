@@ -37,7 +37,10 @@ module.exports = {
             attributes: []
           }],
           limit: limit,
-          offset: offset
+          offset: offset,
+          order: [
+            ['momentOfCapture', 'DESC'],
+          ]
         }).then(function(userConfig) {
           return res.status(200).json(userConfig);
         });
