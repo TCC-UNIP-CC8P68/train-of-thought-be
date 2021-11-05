@@ -4,6 +4,7 @@ const controllerConfigurationTimeout = require('./controllers/configurationsTime
 const controllerConfigurationAllowCapture = require('./controllers/configurationsAllowCapture');
 const controllerUrlException = require('./controllers/urlExceptions');
 const controllerUser = require('./controllers/users');
+const controllerTopSites = require('./controllers/topSites');
 
 module.exports = (app) => {
   app.route('/capture')
@@ -31,4 +32,7 @@ module.exports = (app) => {
   app.route('/user')
   .post(controllerUser.postUser)
   .get(controllerUser.getUser);
+
+  app.route('/topsites')
+  .get(controllerTopSites.getTopSites);
 }
