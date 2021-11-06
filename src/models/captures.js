@@ -21,6 +21,10 @@ const Captures = sequelize.define('Captures',{
     type: Sequelize.STRING,
     allowNull: false
   },
+  capturedTags: {
+    type: Sequelize.STRING,
+    allowNull: true
+  },
   momentOfCapture: {
     type: Sequelize.STRING,
     allowNull: false
