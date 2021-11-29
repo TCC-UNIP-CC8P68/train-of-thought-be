@@ -1,16 +1,16 @@
-const TopSites = require('../models/topSites');
+const WordClouds = require('../models/wordCloud');
 
 module.exports = {
-  async getTopSites(req, res) {
+  async getWordCloud(req, res) {
     try {
-      TopSites.findOne({
+      WordClouds.findOne({
         where: {userId: req.query.userId},
-        attributes: ['topSites']
+        attributes: ['wordCloud']
       }).then(function(topSites) {
         return res.status(200).json(topSites);
       });
     } catch(error) {
-      return res.status(500).json(error);
+      res.status(500).json(error);
     }
   }
 }

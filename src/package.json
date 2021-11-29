@@ -14,7 +14,9 @@
     "express": "^4.17.1",
     "pg": "^8.7.1",
     "sequelize": "^6.6.5",
-    "umzug": "^3.0.0-beta.16"
+    "string.prototype.matchall": "^4.0.6",
+    "umzug": "^3.0.0-beta.16",
+    "xhr2": "^0.2.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"

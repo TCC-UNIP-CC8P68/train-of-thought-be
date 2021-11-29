@@ -5,6 +5,7 @@ const controllerConfigurationAllowCapture = require('./controllers/configuration
 const controllerUrlException = require('./controllers/urlExceptions');
 const controllerUser = require('./controllers/users');
 const controllerTopSites = require('./controllers/topSites');
+const controllerWordCloud = require('./controllers/wordCloud');
 
 module.exports = (app) => {
   app.route('/capture')
@@ -35,4 +36,7 @@ module.exports = (app) => {
 
   app.route('/topsites')
   .get(controllerTopSites.getTopSites);
+
+  app.route('/wordcloud')
+    .get(controllerWordCloud.getWordCloud)
 }
