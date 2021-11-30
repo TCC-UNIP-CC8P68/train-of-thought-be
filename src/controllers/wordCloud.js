@@ -2,9 +2,10 @@ const WordClouds = require('../models/wordCloud');
 
 module.exports = {
   async getWordCloud(req, res) {
+    console.log(req.query.email);
     try {
       WordClouds.findOne({
-        where: {userId: req.query.userId},
+        where: {email: req.query.email},
         attributes: ['wordCloud']
       }).then(function(topSites) {
         return res.status(200).json(topSites);

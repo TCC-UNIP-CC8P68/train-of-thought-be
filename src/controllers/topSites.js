@@ -4,7 +4,7 @@ module.exports = {
   async getTopSites(req, res) {
     try {
       TopSites.findOne({
-        where: {userId: req.query.userId},
+        where: {email: req.query.email},
         attributes: ['topSites']
       }).then(function(topSites) {
         return res.status(200).json(topSites);
