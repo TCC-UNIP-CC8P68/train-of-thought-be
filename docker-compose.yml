@@ -1,11 +1,10 @@
-version: '3'
+version: '3.7'
 
 services: 
   train_of_thought_be:
     container_name: train_of_thought
     image: train_of_thought:0.0.1
-    build: 
-      context: .
+    build: .
     ports:
       - "8084:8084"
     environment: 
@@ -14,9 +13,12 @@ services:
       - PGUSER=admin
       - PGPASSWORD=12345
       - PGHOST=train_of_thought_db
+    links:
+      - "train_of_thought_db:database"
     depends_on: 
       - train_of_thought_db
-  train_of_thought_db: 
+
+  train_of_thought_db:
     container_name: train_of_thought_db
     image: "postgres:12"
     ports:

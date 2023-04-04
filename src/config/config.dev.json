@@ -2,6 +2,6 @@
     "database": "train_of_thought",
     "user": "admin",
     "password": "12345",
-    "host": "localhost",
-    "port": "40000"
+    "host": "database",
+    "port": "5432"
 }
